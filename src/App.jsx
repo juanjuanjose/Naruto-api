@@ -1,18 +1,20 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import "./index.css";
+import Characters from "./pages/Characters/Characters";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
-import "./index.css";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app-shell min-h-screen">
       <Header />
       <Routes>
-        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
+        <Route path="/characters" element={<Characters />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

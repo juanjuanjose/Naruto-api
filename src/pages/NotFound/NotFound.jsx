@@ -1,55 +1,42 @@
+import { ArrowLeft, SearchX } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-[#0F0F0F] text-white p-8">
-      <div className="w-full md:w-1/2 flex items-center justify-center relative">
-        <div className="relative max-w-md">
-          <div className="rounded-lg overflow-hidden border-4 border-[#FF7800] transform hover:scale-105 transition-transform duration-300 shadow-2xl">
-            <img
-              src="../../../public/Naruto/crying.gif"
-              alt="Naruto triste"
-              className="w-full h-auto"
-            />
+    <main className="page-shell flex items-center px-4 py-16 md:px-8">
+      <section className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="premium-card overflow-hidden p-4 md:p-6">
+          <div className="overflow-hidden rounded-[1.5rem] border border-[var(--color-accent)]/35 bg-black/30">
+            <img src="/Naruto/crying.gif" alt="Naruto triste" className="h-full w-full object-cover" />
           </div>
         </div>
-      </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
-        <div className="max-w-md space-y-6 text-center md:text-left">
-          <h2 className="text-[#FF7800] text-xl font-bold tracking-widest">
-            ¡OH NO!
-          </h2>
-          <h1 className="text-5xl font-bold text-[#E0E0E0]">
-            Página no encontrada
-          </h1>
-          <p className="text-[#A0A0A0] text-lg">
-            Parece que te has perdido en el camino ninja. La página que buscas
-            no está aquí, pero puedes volver al inicio y seguir entrenando.
-          </p>
-          <Link
-            to="/"
-            className="inline-flex items-center mt-6 px-6 py-3 bg-[#FF7800] text-white font-semibold rounded-lg hover:bg-[#E56A00] transition-colors duration-200"
-          >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-            Volver al inicio
-          </Link>
+        <div className="space-y-6">
+          <span className="premium-pill border-red-500/30 bg-red-500/10 text-red-200">Error 404</span>
+          <div className="space-y-4">
+            <div className="inline-flex rounded-2xl border border-white/10 bg-white/5 p-3 text-[var(--color-accent)]">
+              <SearchX className="h-6 w-6" />
+            </div>
+            <h1 className="text-5xl font-black uppercase leading-none tracking-[0.08em] text-[var(--color-text-primary)] md:text-6xl">
+              Página no encontrada
+            </h1>
+            <p className="max-w-2xl text-lg leading-8 text-[var(--color-text-muted)]">
+              Te saliste del mapa ninja. La ruta que intentaste abrir no existe, pero el nuevo sistema visual mantiene una salida clara para volver al inicio o entrar directo al archivo de personajes.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            <Link to="/" className="premium-button-primary inline-flex items-center gap-3">
+              <ArrowLeft className="h-5 w-5" />
+              Volver al inicio
+            </Link>
+            <Link to="/characters" className="premium-button-secondary inline-flex items-center gap-3">
+              Ir a personajes
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
